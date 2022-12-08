@@ -1,6 +1,6 @@
 const itemList = [];
 let index = 1;
-let command = toLowerCase(prompt("COMMAND : What do you want to do?"));
+let command = prompt("COMMAND : What do you want to do?").toLowerCase();
 
 while (command !== "quit") {
     if (command === "new") {
@@ -26,16 +26,20 @@ while (command !== "quit") {
     } else if (command === "delete") {
         index = 1;
         let indexDelete = prompt("DELETE : What list do you want to delete?");
-        itemList.splice(indexDelete - 1, 1);
-        console.clear();
-        index = 1;
-        console.log("ToDo List : ")
-        for (let item in itemList) {
-            console.log(`"${index} : ${itemList[index - 1]}"`);
-            index++;
+        if (indexDelete !== NaN) {
+            itemList.splice(indexDelete - 1, 1);
+            console.clear();
+            index = 1;
+            console.log("ToDo List : ")
+            for (let item in itemList) {
+                console.log(`"${index} : ${itemList[index - 1]}"`);
+                index++;
+            }
+            console.log("---------------")
+        } else {
+            let indexDelete = prompt("DELETE : You entered an invalid number! What list do you want to delete?");
         }
-        console.log("---------------")
     }
-    command = toLowerCase(prompt("COMMAND : What do you want to do?"));
+    command = prompt("COMMAND : What do you want to do?").toLowerCase();
 }
 console.log("Okay! You quit the app!")
