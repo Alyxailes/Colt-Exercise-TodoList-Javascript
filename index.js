@@ -1,10 +1,8 @@
 const itemList = [];
 let index = 1;
-let command = '';
+let command = toLowerCase(prompt("COMMAND : What do you want to do?"));
 
 while (command !== "quit") {
-    command = toLowerCase(prompt("COMMAND : What do you want to do?"));
-
     if (command === "new") {
         let addItem = prompt("NEW : What do you want to add into your ToDo?");
         itemList.push(addItem);
@@ -38,5 +36,6 @@ while (command !== "quit") {
         }
         console.log("---------------")
     }
+    command = toLowerCase(prompt("COMMAND : What do you want to do?"));
 }
 console.log("Okay! You quit the app!")
