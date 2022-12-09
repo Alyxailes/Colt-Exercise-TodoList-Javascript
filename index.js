@@ -1,6 +1,15 @@
 const itemList = [];
 let command = prompt("COMMAND : What do you want to do?").toLowerCase();
 
+function showTodo() {
+    console.clear();
+    console.log("ToDo List : ")
+    for (let item in itemList) {
+        console.log(`"${parseInt(item) + 1} : ${itemList[item]}"`);
+    }
+    console.log("---------------")
+}
+
 while (command !== "quit") {
     if (command === "new") {
         let addItem = prompt("NEW : What do you want to add into your ToDo?");
@@ -19,12 +28,3 @@ while (command !== "quit") {
     command = prompt("COMMAND : What do you want to do?").toLowerCase();
 }
 console.log("Okay! You quit the app!")
-
-function showTodo() {
-    console.clear();
-    console.log("ToDo List : ")
-    for (let item in itemList) {
-        console.log(`"${parseInt(item) + 1} : ${itemList[item]}"`);
-    }
-    console.log("---------------")
-}
